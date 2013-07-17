@@ -76,8 +76,8 @@ module Ckeditor
       def select_assets(path, relative_path)
         folder = File.join(relative_path, path, '**')
         relative_folder = Ckeditor.root_path.join(relative_path)
-      
-        Dir[Ckeditor.root_path.join(folder, '*.{js,css}')].inject([]) do |list, file|
+
+        Dir[Ckeditor.root_path.join(folder, '*.{js,css,png}')].inject([]) do |list, file|
           list << Pathname.new(file).relative_path_from(relative_folder).to_s
           list
         end
