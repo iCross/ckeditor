@@ -16,6 +16,7 @@ module Ckeditor
           instance_tag.send(:add_default_name_and_id, options) if options['id'].blank?
           output = instance_tag.to_text_area_tag(options)
         else
+          options = options.symbolize_keys
           instance_tag = ActionView::Helpers::Tags::TextArea.new(object_name, method, self, options)
           instance_tag.send(:add_default_name_and_id, options) if options['id'].blank?
           output = instance_tag.render
